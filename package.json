@@ -1,0 +1,26 @@
+{
+  "name": "hotel-booking",
+  "version": "1.0.0",
+  "description": "hotel booking application",
+  "homepage": "https://github.com/Akshat-Jaiswal-8/hotel-booking#readme",
+  "bugs": {
+    "url": "https://github.com/Akshat-Jaiswal-8/hotel-booking/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akshat-Jaiswal-8/hotel-booking.git"
+  },
+  "license": "MIT",
+  "author": "Akshat Jaiswal",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "nodemon server.js",
+    "start-client": "cd client && npm run dev",
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.2"
+  }
+}
