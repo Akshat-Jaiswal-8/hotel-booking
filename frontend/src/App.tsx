@@ -1,12 +1,22 @@
-import { ThemeProvider } from "./components/theme-providor.tsx"
-import * as React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Hero } from "@/components/hero.tsx";
+import { Navbar } from "@/components/navbar.tsx";
+import { Footer } from "@/components/footer.tsx";
+import { Login } from "@/components/login.tsx";
+import { Register } from "@/components/register.tsx";
 
-function App({children} : {children: React.ReactNode}) {
-    return (
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            {children}
-        </ThemeProvider>
-    )
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Hero />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
