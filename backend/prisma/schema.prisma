@@ -31,17 +31,17 @@ model Hotel {
 model Booking {
   id      String         @id @default(uuid())
   userId  String
-  user    User           @relation(fields: [userId], references: [id])
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   hotelId String
-  hotel   Hotel          @relation(fields: [hotelId], references: [id])
-  checkIn Boolean        @default(false)
+  hotel   Hotel          @relation(fields: [hotelId], references: [id], onDelete: Cascade)
   members FamilyMember[]
 }
 
 model FamilyMember {
   id        String  @id @default(uuid())
   bookingId String
-  booking   Booking @relation(fields: [bookingId], references: [id])
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
   name      String
   aadhaar   String  @unique
+  checkIn   Boolean @default(false)
 }
