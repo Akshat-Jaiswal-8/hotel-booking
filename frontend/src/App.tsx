@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar.tsx";
 import { Footer } from "@/components/footer.tsx";
 import { Login } from "@/components/login.tsx";
 import { Register } from "@/components/register.tsx";
+import { Hotel } from "@/components/hotel.tsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Hero />} />
+        <Route path="/hotels" element={<Hotel />} />
       </Routes>
       <Footer />
     </BrowserRouter>

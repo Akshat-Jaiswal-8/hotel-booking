@@ -9,3 +9,9 @@ interface AuthStore {
   setUser: (user: User) => void;
   logout: () => void;
 }
+
+interface Hotel {
+  id: string;
+  name: string;
+  location: string;
+}
