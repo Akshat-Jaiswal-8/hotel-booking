@@ -97,8 +97,6 @@ export const Hotel = () => {
           familyMembers,
         });
 
-        console.log(data);
-
         if (data) {
           toast.success("Booking successful!");
           setIsDialogOpen(false);
@@ -136,7 +134,7 @@ export const Hotel = () => {
 
   return (
     <section
-      className={"container h-full min-h-[var(--height-screen)] w-full pt-20"}
+      className={"container h-full min-h-[var(--height-screen)] w-full py-20"}
     >
       {isPending ? (
         <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"}>

@@ -42,6 +42,6 @@ model FamilyMember {
   bookingId String
   booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
   name      String
-  aadhaar   String  @unique
+  aadhaar   String
   checkIn   Boolean @default(false)
 }

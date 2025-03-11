@@ -12,6 +12,35 @@ export const createBookingController = async (req, res) => {
   }
 
   try {
+    if (familyMembers?.length > 0) {
+      const aadhaarNumbers = familyMembers.map((member) => member.aadhaar);
+
+      const existingMembers = await db.familyMember.findMany({
+        where: {
+          aadhaar: {
+            in: aadhaarNumbers,
+          },
+          booking: {
+            hotelId: hotelId,
+          },
+        },
+        include: {
+          booking: true,
+        },
+      });
+
+      if (existingMembers.length > 0) {
+        const duplicateAadhaar = existingMembers.map(
+          (member) => member.aadhaar,
+        );
+        return res.status(400).send({
+          message:
+            "One or more family members already exist in our system with these Aadhaar numbers.",
+          duplicateAadhaar,
+        });
+      }
+    }
+
     const booking = await db.booking.create({
       data: {
         userId,
@@ -37,10 +66,10 @@ export const createBookingController = async (req, res) => {
 };
 
 export const getBookingController = async (req, res) => {
-  const { bookingId } = req.params;
+  const { userId } = req.params;
   try {
     const bookings = await db.booking.findMany({
-      where: { id: bookingId },
+      where: { userId },
       include: { members: true },
     });
     return res
@@ -73,8 +102,7 @@ export const getAllBookingsController = async (req, res) => {
 };
 
 export const checkInController = async (req, res) => {
-  const { bookingId } = req.params;
-  const { aadhaar } = req.body;
+  const { aadhaar, bookingId } = req.body;
 
   try {
     const familyMember = await db.familyMember.findFirst({

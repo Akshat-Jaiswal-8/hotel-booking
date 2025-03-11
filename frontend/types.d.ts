@@ -15,3 +15,23 @@ interface Hotel {
   name: string;
   location: string;
 }
+
+type Booking = {
+  id: string;
+  userId: string;
+  hotelId: string;
+  members: Member[];
+};
+
+type Member = {
+  id: string;
+  bookingId: string;
+  name: string;
+  aadhaar: string;
+  checkIn: boolean;
+};
+
+type BookingsResponse = {
+  data: Booking[];
+  message: string;
+};

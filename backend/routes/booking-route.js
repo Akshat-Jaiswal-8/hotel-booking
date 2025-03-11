@@ -12,8 +12,8 @@ const router = express.Router();
 
 router.post("/", createBookingController);
 router.get("/bookings", getAllBookingsController);
-router.get("/:bookingId", getBookingController);
-router.patch("/:bookingId", checkInController);
+router.get("/:userId", getBookingController);
+router.patch("/checkIn", checkInController);
 router.delete("/:bookingId", deleteBookingController);
 
 export default router;
