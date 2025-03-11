@@ -1,54 +1,78 @@
-# React + TypeScript + Vite
+# ReserveGo Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application for hotel reservation management with user authentication, booking management, and check-in functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**: Secure login and registration system
+- **Hotel Browsing**: View and search available hotels
+- **Booking Management**: Create, view, and manage hotel bookings
+- **Check-in System**: Simple check-in process with Aadhaar verification
+- **Responsive Design**: Optimized for both desktop and mobile devices
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** with TypeScript
+- **React Router** for navigation
+- **Zustand** for state management
+- **Shadcn UI** components
+- **Axios** for API communication
+- **React Hook Form** with Zod validation
+- **Sonner** for toast notifications
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Screenshots
+
+
+![Login Page](/frontend/demo-images/home.png)
+
+![Hotels Page](/frontend/demo-images/hotels.png)
+
+![Hotel booking Page](/frontend/demo-images/hotel-booking.png)
+
+![Bookings Page](/frontend/demo-images/bookings.png)
+
+![Check-in Page](/frontend/demo-images/check-in.png)
+
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Akshat-Jaiswal-8/hotel-booking.git
+
+# Navigate to the frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Navigate to `http://localhost:5173` in your browser to start using the application.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Demo Credentials
+
+To test the application's functionality, you can use these credentials:
+
 ```
+- Email: example@example.com
+- Password: example
+```
+
+## Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/       # Reusable UI components
+│   ├── lib/              # Utility functions
+│   ├── middleware/       # Middlewares
+│   ├── store/            # State management
+└── public/               # Static assets
+```
+
+
