@@ -20,10 +20,12 @@ A REST API service that powers the ReserveGo hotel reservation system, providing
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - User login
 
 ### Hotels
+
 - `POST /api/hotel` - Create new hotel
 - `GET /api/hotel/hotels` - Get all hotels
 - `GET /api/hotel/:hotelId` - Get hotel details
@@ -31,12 +33,12 @@ A REST API service that powers the ReserveGo hotel reservation system, providing
 - `DELETE /api/hotel/:hotelId` - Delete hotel
 
 ### Bookings
+
 - `POST /api/booking` - Create new booking
 - `POST /api/booking/bookings` - Get all bookings
 - `GET /api/booking/:userId` - Get user's bookings
 - `PATCH /api/booking/checkIn` - Process guest check-in
 - `DELETE /api/booking/:bookingId` - Delete specific booking
-
 
 ## Installation
 
@@ -55,7 +57,7 @@ cp .env.example .env
 # Edit .env with your configuration
 
 # Start the development server
-npm run start
+npm run dev
 ```
 
 ## Environment Variables
@@ -84,14 +86,16 @@ backend/
 The application uses PostgreSQL with the following data models defined in Prisma:
 
 - **User**: Stores user information with unique email addresses
-    - id, name, email, password, bookings (relation)
+
+  - id, name, email, password, bookings (relation)
 
 - **Hotel**: Contains hotel details
-    - id, name, location, bookings (relation)
+
+  - id, name, location, bookings (relation)
 
 - **Booking**: Records reservation information
-    - id, userId, hotelId, user (relation), hotel (relation), members (relation)
+
+  - id, userId, hotelId, user (relation), hotel (relation), members (relation)
 
 - **FamilyMember**: Stores guest information for check-in
-    - id, bookingId, booking (relation), name, aadhaar, checkIn (boolean)
-
+  - id, bookingId, booking (relation), name, aadhaar, checkIn (boolean)
