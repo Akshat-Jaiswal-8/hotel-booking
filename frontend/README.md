@@ -46,6 +46,10 @@ cd frontend
 # Install dependencies
 npm install
 
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
 # Start the development server
 npm run dev
 ```
